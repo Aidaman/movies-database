@@ -1,0 +1,23 @@
+<div class="controls-section">
+  <button (click)="toFirstPage()"
+          [disabled]="page === 1"
+          class="controls-section__button-control">first</button>
+  <button (click)="toPrevPage()"
+          class="controls-section__button-control">prev</button>
+  <button *ngIf="movieService.allowedPages[0] > 3"
+          (click)="movePaginatorBackwards()"
+          class="controls-section__button-control">...</button>
+  <button (click)="toPage(i)"
+          *ngFor="let i of movieService.allowedPages"
+          [disabled]="i > lastPage || i < 1"
+          [ngClass]="{'button-control-active' : i == page}"
+          class="controls-section__button-control">{{i}}</button>
+  <button *ngIf="movieService.allowedPages[2] < lastPage-1"
+          (click)="movePaginatorForwards()"
+          class="controls-section__button-control">...</button>
+  <button (click)="toNextPage()"
+          class="controls-section__button-control">next</button>
+  <button (click)="toLastPage()"
+          [disabled]="page === movieService.totalPage"
+          class="controls-section__button-control">last</button>
+</div>

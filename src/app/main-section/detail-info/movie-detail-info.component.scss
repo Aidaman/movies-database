@@ -1,0 +1,178 @@
+@import '../../../colors';
+@import '../../../assets/mixins';
+
+:host{
+  height: 100%;
+}
+
+.container{
+  color: white;
+
+  position: relative;
+
+  background-clip: border-box;
+  height: 100%;
+
+  .background{
+    position: absolute;
+    z-index: -1;
+    filter: blur(5px);
+    height: 100%;
+    width: 100%;
+
+      img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    overflow-x: hidden;
+
+  }
+
+  .control-buttons{
+    display: flex;
+   @include xs{
+      justify-content: space-between;
+      font-size: 18px;
+    }
+   @include md {
+      justify-content: space-between;
+      font-size: 24px;
+    }
+
+
+    padding: 24px 64px;
+
+    a{
+      color: $primary-text;
+      border: 1px black solid;
+      border-radius: 6px;
+
+      text-decoration: none;
+      //font-size: 24px;
+
+      cursor: pointer;
+
+      padding: 2px 12px;
+
+      transition: 250ms;
+      &:hover{
+        color: $primary-text-selected;
+        border: 1px $secondary-text solid;
+        border-radius: 6px;
+      }
+    }
+
+    &__back{
+      text-align: start;
+    }
+    &__next-movik{
+      text-align: end;
+    }
+
+    margin-bottom: 64px;
+  }
+
+  .info-block{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include xs{
+      flex-direction: column;
+    }
+   @include xs{
+
+    }
+   @include md {
+      flex-direction: row;
+    }
+
+    column-gap: 86px;
+    row-gap: 12px;
+
+    &__title-section{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      .info-block__title{
+        font-size: 32px;
+      }
+
+     @include xs{
+        flex-direction: column;
+      }
+      @media screen and (min-width: 1200px) {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+    }
+    &__statistics-section{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+
+        hr{
+          @media screen and (max-width: 809px) {
+            padding: 0 0;
+          }
+          display: block;
+          margin: 0 32px;
+          padding: 32px 0;
+          font-size: 12px;
+          line-height: 32px;
+        }
+    }
+    &__addFavorite{
+      border: 1px black solid;
+      border-radius: 6px;
+      color: $secondary-text;
+      background-color: transparent;
+
+      cursor: pointer;
+
+      padding: 8px 24px;
+      transition: 250ms;
+      &.active{
+        border: 1px $secondary-text solid;
+        color: $secondary-text;
+      }
+      &:hover{
+        border: 1px $secondary-text solid;
+        color: $primary-text-selected;
+      }
+    }
+    .can-become-column{
+     @include md {
+        flex-direction: column;
+        column-gap: 84px;
+      }
+    }
+  }
+
+
+.centre{
+  //padding: 0 15%;
+  margin: 0 15%;
+}
+
+.divider{
+ @include xs{
+    display: none;
+  }
+ @include md{
+   display: block;
+  }
+  &-reverse{
+   @include xs{
+      display: block;
+    }
+   @include md{
+      display: none;
+    }
+  }
+}

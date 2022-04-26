@@ -1,0 +1,19 @@
+<div class="content-section standart-padding">
+  <h3 class="content-section__header">
+    Latest Releases
+  </h3>
+  <div id="cardGrid"
+       class="content-section__movie-grid">
+    <div  *ngFor="let movie of movieList$ | async"
+         [routerLink]="['/movie', movie.id]"
+         class="card">
+      <img [src]="'http://image.tmdb.org/t/p/w342/'+movie.poster_path"
+           [alt]="movie.title">
+      <div class="card__title">{{movie.title}}</div>
+    </div>
+  </div>
+</div>
+<app-paginator
+    (onPageChanged)="processGetQuerry($event)"
+    [page]="movieService.currentPage$.value"
+    [lastPage]="movieService.totalPage"></app-paginator>

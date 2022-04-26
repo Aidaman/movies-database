@@ -1,0 +1,76 @@
+<div class="container" *ngIf="(movie$ | async) as movie">
+  <div class="background">
+    <img [src]="'http://image.tmdb.org/t/p/w342'+movie.backdrop_path" alt="">
+  </div>
+
+  <div class="control-buttons">
+    <div class="control-buttons__back" (click)="backToMainPage()">
+      <a >Back to list</a>
+    </div>
+    <div class="control-buttons__next-movik"
+         *ngIf="isNextAvailable"
+         (click)="toNextMovie()">
+      <a >Next Movie</a>
+    </div>
+  </div>
+
+  <div class="info-block centre" >
+    <img class="info-block__poster" [src]="'http://image.tmdb.org/t/p/w342/'+movie.poster_path" [alt]="movie.title">
+    <div class="can-become-column">
+    <div class="info-block__title-section">
+      <span>
+        <hr class="divider-reverse">
+          <h2 class="info-block__title">{{movie.title}}</h2>
+        <hr class="divider-reverse">
+      </span>
+      <button class="info-block__addFavorite"
+              (click)="addToFavorite(movie.id)"
+              [class.active]="movie.isFavorite">Add to Favorite</button>
+    </div>
+
+
+      <div class="info-block__statistics-section">
+        <p class="info-block__score">Score: {{movie.vote_average}}</p>
+        <hr>
+        <p class="info-block__rating">Rating: {{movie.rating}}</p>
+        <hr>
+        <p class="info-block__release-date">Release Date: {{movie.release_date | date:'mediumDate'}}</p>
+      </div>
+
+      <div class="info-block__description-section">
+        <hr class="divider-reverse">
+        <p class="info-block__description">{{movie.overview}}</p>
+        <hr class="divider-reverse">
+      </div>
+    </div>
+
+
+    <!--    <span>-->
+
+
+<!--    <div class="info-block__info-block">-->
+<!--      <div class="info-block__info">-->
+<!--        <div class="info-block__favandtitle">-->
+<!--          <button class="info-block__addFavorite"-->
+<!--                  (click)="addToFavorite(movie.id)"-->
+<!--                  [class.active]="movie.isFavorite">Add to Favorite</button>-->
+<!--        </div>-->
+<!--        <h2 class="info-block__title">{{movie.title}}</h2>-->
+<!--      </div>-->
+
+
+<!--      <div class="info-block__statistic">-->
+<!--        <p class="info-block__score">Score: {{movie.vote_average}}</p>-->
+<!--        <hr class="divider">-->
+<!--        <p class="info-block__rating">Rating: {{movie.rating}}</p>-->
+<!--        <hr class="divider">-->
+<!--        <p class="info-block__release-date">Release Date: {{movie.release_date | date:'mediumDate'}}</p>-->
+<!--      </div>-->
+<!--      <hr class="divider">-->
+<!--      <p class="info-block__description">{{movie.overview}}</p>-->
+<!--      <hr class="divider">-->
+<!--    </div>-->
+<!--  </span>-->
+
+  </div>
+</div>

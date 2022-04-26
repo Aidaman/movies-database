@@ -1,0 +1,119 @@
+@import "../../colors";
+@import "src/assets/mixins";
+
+.favorite-section{
+
+  .favorite-section__header{
+    padding: 0 64px;
+    color: $primary-text;
+    font-size: 24px;
+    @include xs {
+      flex-direction: column;
+      padding: 0;
+      margin: 25px;
+      gap: 30px;
+    }
+    @include md {
+      flex-direction: row;
+      padding: 0 32px;
+      margin: 25px;
+      gap: 30px;
+    }
+  }
+
+  .movie-info{
+    display: flex;
+    flex-direction: row;
+
+    padding: 0 20%;
+    margin: 25px;
+    gap: 30px;
+    @include xs {
+      flex-direction: row;
+      padding: 0;
+      margin: 25px;
+
+      //gap: 30px;
+    }
+    @include md {
+      flex-direction: row;
+      padding: 0 10%;
+      margin: 25px;
+      gap: 30px;
+    }
+
+    &__poster{
+      height: 382px;
+      width: 286px;
+      @include xs {
+        height: 262px;
+        width: 166px;
+      }
+      @include md {
+        height: 312px;
+        width: 216px;
+      }
+      @media screen and (min-width: 1200px) {
+        height: 382px;
+        width: 256px;
+      }
+    }
+
+    &__description{
+      display: flex;
+      font-size: 16px;
+      flex-direction: column;
+    }
+
+    &__title{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      color: $primary-text;
+      font-size: 16px;
+      font-weight: bold;
+
+      margin-bottom: 16px;
+
+      @include xs {
+        flex-direction: column;
+      }
+      @include md {
+        flex-direction: row;
+      }
+    }
+
+    &__text{
+      font-size: 16px;
+      @include xs {
+        font-size: 12px;
+      }
+      @include md {
+        font-size: 14px;
+      }
+    }
+
+    &__unfavorite{
+      //align-self: end;
+
+      border: 1px $primary-text solid;
+      border-radius: 6px;
+      color: $primary-text;
+      background-color: transparent;
+
+      font-size: 18px;
+
+      box-shadow: 4px 8px 2px $primary-text;
+
+      padding: 8px 24px;
+      transition: 250ms;
+      &:hover{
+        box-shadow: 1px 3px .5px $primary-text;
+        border: 1px $primary-text-selected solid;
+        color: $primary-text-selected;
+      }
+    }
+  }
+
+}

@@ -62,3 +62,4 @@ export class FavoritesService{
     return JSON.parse(localStorage.getItem('favorites') as string) || [];
   }
 }
+

@@ -1,0 +1,21 @@
+<div class="favorite-section standart-padding">
+  <h3 class="favorite-section__header">
+    My Favorites
+  </h3>
+  <div class="movie-list">
+    <div class="movie-info" *ngFor="let m of favMovies | async">
+      <ng-container *ngIf="m | async as movie">
+        <img class="movie-info__poster" [src]="'http://image.tmdb.org/t/p/w342/'+$any(movie).poster_path" [alt]="$any(movie).title">
+        <div class="movie-info__description">
+          <div class="movie-info__title">
+            <span>{{$any(movie).title}}</span>
+            <button class="movie-info__unfavorite" (click)="favService.removeFavorite($any(movie).id)">unfavorite</button>
+          </div>
+          <div class="movie-info__text">{{$any(movie).overview}}</div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>
+
+

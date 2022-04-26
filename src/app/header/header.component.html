@@ -1,0 +1,24 @@
+<div class="header-section standart-padding">
+  <div class="header-section__logo" (click)="toStartPage()">
+    <img class="header-section__picture" src="../../assets/images/Logo.png" alt="">
+    <h1 class="header-section__header">Movies</h1>
+  </div>
+  <div class="select" (click)="isSelectOpen = !isSelectOpen">
+    <div class="select__selected">
+      {{selectedOption}}
+    </div>
+    <div class="select__select-box">
+      <div class="select__options-storage" [class.active]="isSelectOpen" >
+        <div class="select__option"
+             (click)="selectedOption = option.option"
+             *ngFor="let option of optionArr"
+              [routerLink]="[option.routerLink]">
+          <input class="select__radio"
+                 type="radio" name="page"
+                 [id]="option.id">
+          <label [for]="option.id">{{option.option}}</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

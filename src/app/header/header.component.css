@@ -1,0 +1,107 @@
+.container {
+  font-family: sans-serif;
+}
+
+@media screen and (min-width: 350px) {
+  .standart-padding {
+    padding: 6px 24px;
+  }
+}
+@media screen and (min-width: 810px) {
+  .standart-padding {
+    padding: 6px 64px;
+  }
+}
+
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+:host {
+  max-height: 80px;
+}
+
+.header-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #5a6e82;
+}
+.header-section__logo {
+  display: flex;
+  flex-direction: row;
+  color: white;
+  border-radius: 15px;
+  cursor: pointer;
+}
+.header-section__header {
+  align-self: center;
+  font-size: 24px;
+  font-style: italic;
+}
+.header-section__picture {
+  width: 64px;
+  height: 64px;
+  padding: 12px;
+  align-self: end;
+}
+.header-section .select {
+  position: relative;
+  cursor: pointer;
+  background-color: #5a6e82;
+  color: white;
+  border-radius: 5px;
+  border: rgba(129, 129, 129, 0.5) 1px solid;
+  font-size: 16px;
+  text-align: center;
+  padding: 12px;
+  transition: 250ms;
+}
+.header-section .select__options-storage {
+  position: absolute;
+  top: 48px;
+  left: -10%;
+  z-index: 9;
+  display: none;
+  background: #5a6e82;
+  color: white;
+  opacity: 0;
+  border: rgba(129, 129, 129, 0.5) 1px solid;
+  border-radius: 8px;
+  box-shadow: 2px 6px 3px rgba(129, 129, 129, 0.5);
+  max-height: 0;
+  width: 120%;
+  transition: 400ms;
+  overflow: hidden;
+}
+.header-section .select__options-storage.active {
+  display: flex;
+  flex-direction: column;
+  max-height: 240px;
+  opacity: 1;
+}
+.header-section .select__option {
+  padding: 12px 0;
+  border: rgba(129, 129, 129, 0.5) 1px solid;
+  border-radius: 8px;
+}
+.header-section .select__option * {
+  cursor: pointer;
+}
+.header-section .select__option:hover {
+  background: #465064;
+}
+.header-section .select__option .select__radio {
+  display: none;
+}
+.header-section .select:hover {
+  border-color: white;
+}
+.header-section .select:hover .select__options-storage {
+  border-color: white;
+}
+
+/*# sourceMappingURL=header.component.css.map */
