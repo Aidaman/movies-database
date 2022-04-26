@@ -1,0 +1,21 @@
+.container{
+  font:{
+    family: sans-serif;
+  }
+}
+
+
+.standart-padding{
+  @media screen and (min-width: 350px) {
+      padding: 6px 24px;
+  }
+  @media screen and (min-width: 810px) {
+    padding: 6px 64px;
+  }
+}
+
+:host{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
