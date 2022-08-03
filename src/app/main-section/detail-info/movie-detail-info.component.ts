@@ -35,7 +35,6 @@ export class MovieDetailInfo implements OnInit {
     let idx = movies.findIndex(movie => movie.id === this.movieService.selectedMovieId);
     if (idx >= movies.length-2){
       this.movieService.currentPage$.next(this.movieService.currentPage$.value+1);
-      console.log(idx, movies);
 
       //Don't forget to move Paginator showed values
       for (let i = 0; i < 3; i++) {

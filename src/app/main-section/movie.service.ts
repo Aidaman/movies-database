@@ -17,7 +17,6 @@ export class MovieService{
 
   public movieList$: Observable<MovieData[]> = this.currentPage$.pipe(
     switchMap( page => {
-      console.log(page);
       return this.getMoviesByPage(page)
     }),
     map( result => {
